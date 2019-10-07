@@ -13,6 +13,8 @@ h4{ font-size:28px; }
 h5{ font-size:25px; }
 h6{ font-size:20px; }
 
+.banner{width: 100%; display: block;}
+.banner .banner-image{ width: 100%}
 p{ font-size:16px; line-height:1.7em; color:#555555; margin-bottom:20px; }
 
 a{ color:#444444; text-decoration:none; }
