@@ -21,6 +21,31 @@ a:hover{ color:#31af91; }
 a:visited { color: #821e6f; }
 a:active { color: #f1616e; }
 
+.techtable {
+    background-color: #e5f3f0;
+    color: #222;
+    margin: 1em 0;
+    border: 1px solid #a2a9b1;
+    border-collapse: collapse;
+}
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+table {
+    border-collapse: separate;
+    border-spacing: 2px;
+}
+td {
+    display: table-cell;
+    vertical-align: inherit;
+}
+.techtable > tr > th, .techtable > tr > td, .techtable > * > tr > th, .techtable > * > tr > td {
+    border: 1px solid #a2a9b1;
+    padding: 0.2em 0.4em;
+}
+
 .clear{ clear: both; }
 .wrapper{ width:100%; }
 
@@ -61,7 +86,7 @@ a:active { color: #f1616e; }
 .post-icon .fa-circle{ color:#FFFFFF; }
 .post-icon .fa-inverse{ color:#31af91; }
 
-ol, ul{
+ul{
     list-style: none;
 }
 .widget-container{ background:#FFFFFF; margin-bottom:30px; padding-bottom:20px; }
