@@ -52,17 +52,6 @@ td {
 .first{ margin-left:0px; }
 .last{ margin-right:0px; }
 
-.spacing-10{ height:10px; width:100%; }
-.spacing-20{ height:20px; width:100%; }
-.spacing-30{ height:30px; width:100%; }
-.spacing-40{ height:40px; width:100%; }
-.spacing-50{ height:50px; width:100%; }
-.spacing-60{ height:60px; width:100%; }
-.spacing-70{ height:70px; width:100%; }
-.spacing-80{ height:80px; width:100%; }
-.spacing-90{ height:90px; width:100%; }
-.spacing-100{ height:100px; width:100%; }
-
 .post{
 	background:#FFFFFF;
 	margin-bottom:40px;
@@ -109,7 +98,7 @@ ul{
 .widget-container .searchform input{ outline:none; }
 .widget-container .searchform #s{ padding:10px; padding-top:8px; padding-bottom:8px; margin-right:0px; float:left; background:#343434; color:#FFFFFF; border:none; }
 .widget-container .searchform #searchsubmit{ margin-left:0px; float:left; padding:8px; padding-left:8px; padding-right:8px; text-transform:uppercase; font-weight:700; }
-.widget-container .searchform #searchsubmit{ background:#60a381;; border:none; color:#FFFFFF; }
+.widget-container .searchform #searchsubmit{ background:#398d59;; border:none; color:#FFFFFF; }
 
 .widget-container p{ margin-left:20px; margin-right:20px; font-size:14px; }
 
@@ -124,9 +113,7 @@ ul{
 .widget-recent-posts .post-image{ float:left; margin-right:10px }
 .widget-recent-posts .post-image .post-mask{ height:70px; width:70px; border-radius: 70px; position:absolute }
 
-.round{
-    border-radius: 70px;
-}
+
 .avatar-mask{ height:70px; width:70px; border-radius: 70px;border: 3px solid green; position:absolute }
 .avatar-container{ float:left; margin-right:20px; }
 
@@ -152,17 +139,3 @@ ul{
 .main .col-1-3{width:33.33%;}
 .main .col-2-3{width:66.66%;}
 
-.main .col-1-4{width:25%;}
-.main .col-2-4{width:50%;}
-.main .col-3-4{width:75%;}
-
-.main .col-1-5{width:20%;}
-.main .col-2-5{width:40%;}
-.main .col-3-5{width:60%;}
-.main .col-4-5{width:80%;}
-
-.main .col-1-6{width:16.66%;}
-.main .col-2-6{width:33.33%;}
-.main .col-3-6{width:50%;}
-.main .col-4-6{width:66.66%;}
-.main .col-5-6{width:83.33%;}
