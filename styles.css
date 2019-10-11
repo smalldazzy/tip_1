@@ -52,10 +52,7 @@ td {
 .first{ margin-left:0px; }
 .last{ margin-right:0px; }
 
-.post{
-	background:#FFFFFF;
-	margin-bottom:40px;
-	}
+.post{	background:#FFFFFF;	margin-bottom:40px;	}
 .post .post-margin{ padding-left:8%; padding-right:8%; padding-top:5%; padding-bottom:5%; }
 .post .post-title{ margin-bottom:5px; color:#444444; }
 
@@ -75,9 +72,8 @@ td {
 .post-icon .fa-circle{ color:#FFFFFF; }
 .post-icon .fa-inverse{ color:#31af91; }
 
-ul{
-    list-style: none;
-}
+ul{ list-style: none;}
+
 .widget-container{ background:#FFFFFF; margin-bottom:30px; padding-bottom:20px; }
 .widget-title{
 	padding:20px;
@@ -88,6 +84,8 @@ ul{
 	margin-bottom:20px;
 	}
 
+.round{ border-radius: 70px; }
+       
 .widget-container ul{ margin-left:20px; margin-right:20px; font-size:16px; }
 .widget-container li{ border-bottom:1px solid #EEEEEE; padding-bottom:10px; padding-top:10px; }
 .widget-container li:first-child{ border-top:none; }
