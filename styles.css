@@ -97,6 +97,7 @@ ul{ list-style: none;}
 .widget-container .searchform #s{ padding:10px; padding-top:8px; padding-bottom:8px; margin-right:0px; float:left; background:#343434; color:#FFFFFF; border:none; }
 .widget-container .searchform #searchsubmit{ margin-left:0px; float:left; padding:8px; padding-left:8px; padding-right:8px; text-transform:uppercase; font-weight:700; }
 .widget-container .searchform #searchsubmit{ background:#398d59;; border:none; color:#FFFFFF; }
+.button{outline:none; margin:5px; float:left; padding:5px;  text-transform:uppercase; font-weight:700;background:#398d59;; border:none; color:#FFFFFF;}
 
 .widget-container p{ margin-left:20px; margin-right:20px; font-size:14px; }
 
