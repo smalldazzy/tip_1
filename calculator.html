@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Scripts</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+</head>
+
+<body>
+    <div class="post-avatar">
+        <a href='index.html'>
+            <div class="avatar-frame"></div>
+            <img alt='' src="images/logo.jpg" height="70" width="70" />
+        </a>
+
+    </div>
+    <div class="post-margin">
+        <a href='browserevents.html'>Назад</a>
+    </div>
+    <div>
+        <input id='inp'>
+        <button onclick="ternary(document.getElementById('inp').value)">Вычислить</button>
+    </div>
+</body>
+<footer>
+    <script>
+        let num1, op, num2, ans
+        // let ter1 = /^\+/
+        // let ter11 = /^\-/
+        alert("Калькулятор студента Олега")
+        num1 = prompt("Введите число:", "1")
+        op = prompt("Введите знак операции: (+, -, *, /, %)", "+")
+        num2 = prompt("Введите еще одно число:", "2")
+        // num1 = ter1.test(num1) ? num1++ : (ter11.test(num1) ? num1-- : )
+        // ans = eval(Number(num1) + op + Number(num2))
+        alert(num1 + " " + op + " " + num2 + " = " + ans)
+    </script>
+</footer>
