@@ -4,7 +4,12 @@ body{
     padding-bottom:30px;
 	}
 
-h1,h2,h3,h4,h5,h6{ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-transform:uppercase; font-weight:700; line-height:1.4em; color:#555555; }
+h1,h2,h3,h4,h5,h6{ 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     text-transform:uppercase; 
+     font-weight:700; 
+     line-height:1.4em; 
+     color:#555555; }
 h1{ font-size:35px; }
 h2{ font-size:33px; }
 h3{ font-size:30px; }
@@ -78,7 +83,10 @@ ul{ list-style: none;}
 .widget-title{
 	padding:20px;
 	padding-bottom:20px;
-	font-size:14px;
+    font-size:14px;
+    text-decoration: underline;
+    text-decoration: bold;
+    font-weight: bold;
 	color:#343434;
 	border-bottom:1px solid #EEEEEE;
 	margin-bottom:20px;
@@ -138,3 +146,7 @@ ul{ list-style: none;}
 .main .col-1-3{width:33.33%;}
 .main .col-2-3{width:66.66%;}
 
+a.labtask {
+    font-weight: bold;
+
+}
