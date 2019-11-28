@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Zarplati #2</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <script>
+         function income(ob_frm) {
+             let sum = 0
+             let arr = []
+             for (i=0;i<6;i++) {
+                sum+= Number(ob_frm.elements[i].value)
+                arr.push(Number(ob_frm.elements[i].value))
+             }
+                ob_frm.result.value = sum/6;
+                ob_frm.min.value = Math.min(...arr)
+                ob_frm.max.value = Math.max(...arr)
+            }
+    </script>
+</head>
+
+<body>
+
+    <div class="about">
+        <div class="about-column" id="post-container">
+            <div class="wrap-col">
+                <div class="post">
+                    <div class="post-margin">
+                        <div class="post-avatar">
+                            <a href='index.html'>
+                                <div class="avatar-frame"></div>
+                                <img alt='' src="images/logo.jpg" height="70" width="70" />
+                            </a></div>
+                        <div class="post-margin">
+                                <a href='lab3.html'>Назад</a>
+                                <h2>Вычисление среднемесячного дохода студента Петрова</h2>
+                                <p>Введите начисленные Вам суммы за месяцы:</p>
+                                    <FORM name="form1">
+                                        январь: <input type="text" size=8 name="m1">
+                                        февраль: <input type="text" size=8 name="m2">
+                                        март: <input type="text" size=8 name="m3">
+                                        апрель: <input type="text" size=8 name="m4">
+                                        май: <input type="text" size=8 name="m5">
+                                        июнь: <input type="text" size=8 name="m6"><br><br>
+                                        Средняя зарплата за шесть месяца:
+                                        <input type="text" size=22 name="result"><br><br>
+                                        Минимальная зарплата
+                                        <input type="text" size=10 name="min"><br><br>
+                                        Максимальная зарплата
+                                        <input type="text" size=10 name="max"><br><br>
+                                        <input type="button" value="Вычислить" onClick="income(form1)">&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="reset" value="Обновить">
+                                    </FORM>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <div class="clear"></div>
+</body>

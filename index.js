@@ -102,6 +102,27 @@ function task319() {
             break;
     }
 }
-function task3110() {
-
+function task331() {
+    rndNum = Math.random(); //1-й вариант случайного числа
+    alert("1-й радиус = " + rndNum);
+    alert("Площадь круга с 1-м радиусом = " + Math.PI * ((rndNum * rndNum)));
+    rndNum = rndNum * 10;  //2-й вариант случайнного числа
+    alert(" 2-й радиус = " + Math.round(rndNum));
+    alert("Площадь круга со 2-м радиусом = " + Math.PI * ((Math.round(rndNum) * Math.round(rndNum))));
+    let rad = Math.round(Math.random()*100) //2-й вариант случайного числа
+    console.log(rad)
+    alert('Площадь круга'+Math.PI*rad*rad)
 }
+function task332() {
+    dateVar = new Date();
+    day_per_ms = 1000 * 60 * 60 * 24;
+    ten_day_per_ms = 10 * day_per_ms;
+    today_ms = dateVar.getTime();
+    today_ms += ten_day_per_ms;
+    dateVar.setTime(today_ms);
+    ten_day = dateVar.toLocaleString();
+    let str = ten_day.split(',')[0]
+    alert("Дата и время через " + ten_day_per_ms / day_per_ms +
+        " дней от текущей даты :-) : " + str);
+}
+
