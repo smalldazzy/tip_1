@@ -67,6 +67,10 @@ function task317() {
 }
 function task318() {
     let breakat = prompt("Введите число для прерывания цикла от 1 до 10-ти ", "");
+    if (breakat>10 || breakat<1) {
+        alert('Вы ввели число не в заданном промежутке')
+        return
+    }
     for (let i = 0; i < 10; i++) {
         if (i == breakat) {
             break;
