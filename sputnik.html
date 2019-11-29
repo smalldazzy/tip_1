@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sputnik</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <script>
+        var p1;     // текущая координата слоя
+        var sp1;    // приращение при движении слоя
+        var Circle = false;
+        var Line = false;
+        // установка начальных параметров перемещения слоя
+        function initLine() {
+            Line = false;
+            p1 = 24;
+            sp1 = 1;
+            l1.style.left = 24;
+        }
+        //  сдвиг слоя на вычисленный шаг вправо
+        var timerLine = 10;
+        function succLine() {
+            sp1 = 1;
+            p1 += sp1;
+            if (p1 > 700) p1 = 24;
+            l1.style.left = p1;
+            timerLine = setTimeout(succLine, 200);
+            if (Line == true) stoppedLine();
+        }
+        var timerCircle = 10;
+        function initCircle() {
+            timerCircle = setInterval(moveImage, 10);
+        }
+        //  начальные установки для движения по окружности
+        var angle = 0;
+        var radius = 50;
+        var xbegin = 80;
+        var ybegin = 80;
+        var d = document;
+        //   движение изображения-спутника по окружности
+        function moveImage() {
+            var
+            rad = angle * Math.PI / 180;
+            //  вычисление координаты следующего положения изображения
+            d.myimage.style.pixelLeft = xbegin + radius * Math.sin(rad);
+            d.myimage.style.pixelTop = ybegin + radius * Math.cos(rad);
+            angle += 1;
+            if (angle >= 360) angle = 0;
+            if (Circle == true) stoppedCircle();
+        }
+        function stoppedCircle() {
+            clearInterval(timerCircle);
+        }
+        function stoppedLine() {
+            clearTimeout(timerLine);
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="about">
+        <div class="about-column" id="post-container">
+            <div class="wrap-col">
+                <div class="post">
+                    <div class="post-margin">
+                        <div class="post-avatar">
+                            <a href='index.html'>
+                                <div class="avatar-frame"></div>
+                                <img alt='' src="images/logo.jpg" height="70" width="70" />
+                            </a></div>
+                        <div class="post-margin">
+                            <a href='lab3.html'>Назад</a>
+                            <h2>Sputnik</h2>
+                            <!-- <center> -->
+                            <FORM name="form1">
+                                <input type="button" value="Ускорить спутник" onClick="initCircle()">
+                                <input type="button" value="Ускорить вправо" onClick="initLine(); succLine()">
+                                <input type="button" value="Вправо" onClick="initLine()">
+                                <input type="button" value="Тормоз спутника" onClick="Circle=true">
+                                <input type="button" value="Стоп вправо" onClick="Line=true">
+                            </FORM>
+                            <!-- </center> -->
+                            <table width=878 height=185 border=4 bgcolor="brown" bordercolor="black">
+                                <tr>
+                                    <td>
+                                        <div id="l1"
+                                            style="position:absolute; left:24; background:brown; width:178; height:176; top:101;">
+                                            <img src="./image1/img5.png" name="mycenter" ;
+                                                style="position:absolute; left:80; top: 80; width:40; height:15">
+                                            <img src="./image1/clever.png" name="myimage" ;
+                                                style="position:absolute; left:80; top:130; width:42; height:23">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <div class="clear"></div>
+</body>

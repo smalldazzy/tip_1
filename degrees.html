@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>MouseOut</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <script>
+        function inputCels() {
+                var cels = prompt("Введите значение температуры в градусах по цельсию", "Введите температуру");
+                ansFah = doFahCalc(cels);
+                alert(cels + " градусов по Цельсию равно " + ansFah + " градусов по Фаренгейту");
+            }
+            function inputFah() {
+                var fah = prompt("Введите значение температуры в градусах по Фаренгейту", "Введите температуру");
+                ansCel = doCelCalc(fah);
+                alert(fah + " градусов по Фаренгейту равно " + ansCel + " градусов по Цельсию");
+            }
+            function inputCr() {
+                var fah = prompt("Введите значение температуры в градусах по Цельсию", "Введите температуру");
+                ansCel = cr(fah);
+                alert(fah + " градусов по Цельсию равно " + ansCel + " градусов по Реомюру");
+            }
+            function inputFr() {
+                var fah = prompt("Введите значение температуры в градусах по Фаренгейту", "Введите температуру");
+                ansCel = fr(fah);
+                alert(fah + " градусов по Фаренгейту равно " + ansCel + " градусов по Реомюру");
+            }
+            function inputRc() {
+                var fah = prompt("Введите значение температуры в градусах по Фаренгейту", "Введите температуру");
+                ansCel = rc(fah);
+                alert(fah + " градусов по Реомюру равно " + ansCel + " градусов по Цельсию");
+            }
+            function inputRf() {
+                var fah = prompt("Введите значение температуры в градусах по Фаренгейту", "Введите температуру");
+                ansCel = rf(fah);
+                alert(fah + " градусов по Реомюру равно " + ansCel + " градусов по Фаренгейту");
+            }
+            function doCelCalc(fah) {
+                var ans = ((Number(fah) - 32) / 1.8);
+                return (ans);
+            }
+            function doFahCalc(cels) {
+                var ans = ((1.8 * Number(cels)) + 32);
+                return (ans);
+            }
+            function cr(deg) {
+                return deg*0.8
+            }
+            function fr(deg) {
+                return (deg-32)*0.444444
+            }
+            function rc(deg) {
+                return (deg/0.8)
+            }
+            function rf(deg) {
+                return deg*2.25+32
+            }
+    </script>
+</head>
+
+<body>
+
+    <div class="about">
+        <div class="about-column" id="post-container">
+            <div class="wrap-col">
+                <div class="post">
+                    <div class="post-margin">
+                        <div class="post-avatar">
+                            <a href='index.html'>
+                                <div class="avatar-frame"></div>
+                                <img alt='' src="images/logo.jpg" height="70" width="70" />
+                            </a></div>
+                        <div class="post-margin">
+                            <a href='lab3.html'>Назад</a>
+                            <br>
+                            <input type="button" value="Переход от градусов по Цельсию к градусам по Фаренгейту" onClick="inputCels();">
+                            <br>
+                            <input type="button" value="Переход от градусов по Фаренгейту к градусам по Цельсию" onClick="inputFah();">
+                            <br>
+                            <input type="button" value=" Цельсий-Реомюр" onClick="inputCr()">
+                            <br>
+                            <input type="button" value="Фаренгейт-Реомюр" onClick="inputFr()">
+                            <br>
+                            <input type="button" value="Реомюр-Цельсий" onClick="inputRc()">
+                            <br>
+                            <input type="button" value="Реомюр-Фаренгейт" onClick="inputRf()">
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <div class="clear"></div>
+</body>
