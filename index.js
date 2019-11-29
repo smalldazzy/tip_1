@@ -124,7 +124,7 @@ function task332() {
     dateVar.setTime(today_ms);
     ten_day = dateVar.toLocaleString();
     let str = ten_day.split(',')[0]
-    alert("Дата и время через " + ten_day_per_ms / day_per_ms +
+    alert("Дата через " + ten_day_per_ms / day_per_ms +
         " дней от текущей даты :-) : " + str);
 }
 
