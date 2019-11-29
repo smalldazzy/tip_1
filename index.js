@@ -67,7 +67,7 @@ function task317() {
 }
 function task318() {
     let breakat = prompt("Введите число для прерывания цикла от 1 до 10-ти ", "");
-    if (breakat>10 || breakat<1 || !Number.isInteger(breakat)) {
+    if (breakat>10 || breakat<1 || !Number.isInteger(Number(breakat))) {
         alert('Вы не ввели число в заданном промежутке')
         return
     }
