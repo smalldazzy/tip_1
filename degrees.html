@@ -7,33 +7,57 @@
     <script>
         function inputCels() {
                 var cels = prompt("Введите значение температуры в градусах по цельсию", "Введите температуру");
+                if (cels===null || Number.isNaN(Number(cels))) {
+                    alert('Введите корректное значение')
+                } else {
                 ansFah = doFahCalc(cels);
                 alert(cels + " градусов по Цельсию равно " + ansFah + " градусов по Фаренгейту");
+                }
             }
             function inputFah() {
                 var fah = prompt("Введите значение температуры в градусах по Фаренгейту", "Введите температуру");
+                if (fah===null || Number.isNaN(Number(fah))) {
+                    alert('Введите корректное значение')
+                } else {
                 ansCel = doCelCalc(fah);
                 alert(fah + " градусов по Фаренгейту равно " + ansCel + " градусов по Цельсию");
+                }
             }
             function inputCr() {
                 var fah = prompt("Введите значение температуры в градусах по Цельсию", "Введите температуру");
+                if (fah===null || Number.isNaN(Number(fah))) {
+                    alert('Введите корректное значение')
+                } else {
                 ansCel = cr(fah);
                 alert(fah + " градусов по Цельсию равно " + ansCel + " градусов по Реомюру");
+                }
             }
             function inputFr() {
                 var fah = prompt("Введите значение температуры в градусах по Фаренгейту", "Введите температуру");
+                if (fah===null || Number.isNaN(Number(fah))) {
+                    alert('Введите корректное значение')
+                } else {
                 ansCel = fr(fah);
                 alert(fah + " градусов по Фаренгейту равно " + ansCel + " градусов по Реомюру");
+                }
             }
             function inputRc() {
                 var fah = prompt("Введите значение температуры в градусах по Фаренгейту", "Введите температуру");
+                if (fah===null || Number.isNaN(Number(fah))) {
+                    alert('Введите корректное значение')
+                } else {
                 ansCel = rc(fah);
                 alert(fah + " градусов по Реомюру равно " + ansCel + " градусов по Цельсию");
+                }
             }
             function inputRf() {
                 var fah = prompt("Введите значение температуры в градусах по Фаренгейту", "Введите температуру");
+                if (fah===null || Number.isNaN(Number(fah))) {
+                    alert('Введите корректное значение')
+                } else {
                 ansCel = rf(fah);
                 alert(fah + " градусов по Реомюру равно " + ansCel + " градусов по Фаренгейту");
+                }
             }
             function doCelCalc(fah) {
                 var ans = ((Number(fah) - 32) / 1.8);
