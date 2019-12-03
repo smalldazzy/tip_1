@@ -12,17 +12,17 @@
         // установка начальных параметров перемещения слоя
         function initLine() {
             Line = false;
-            p1 = 24;
+            p1 = 1080;
             sp1 = 1;
-            l1.style.left = 24;
+            l1.style.left = p1 + 'px';
         }
         //  сдвиг слоя на вычисленный шаг вправо
         var timerLine = 10;
         function succLine() {
-            sp1 = 1;
-            p1 += sp1;
-            if (p1 > 700) p1 = 24;
-            l1.style.left = p1;
+            sp1 = 10;
+            p1 -= sp1;
+            if (p1 <400) p1 = 1080;
+            l1.style.left = p1 + 'px';
             timerLine = setTimeout(succLine, 200);
             if (Line == true) stoppedLine();
         }
@@ -31,20 +31,19 @@
             timerCircle = setInterval(moveImage, 10);
         }
         //  начальные установки для движения по окружности
-        var angle = 0;
+        var angle = 360;
         var radius = 50;
         var xbegin = 80;
         var ybegin = 80;
         var d = document;
         //   движение изображения-спутника по окружности
         function moveImage() {
-            var
-            rad = angle * Math.PI / 180;
+            var rad = 5 * angle * Math.PI / 180; // increase speed
             //  вычисление координаты следующего положения изображения
             d.myimage.style.pixelLeft = xbegin + radius * Math.sin(rad);
             d.myimage.style.pixelTop = ybegin + radius * Math.cos(rad);
-            angle += 1;
-            if (angle >= 360) angle = 0;
+            angle -= 1;
+            if (angle <= 0) angle = 360;
             if (Circle == true) stoppedCircle();
         }
         function stoppedCircle() {
@@ -84,11 +83,11 @@
                                 <tr>
                                     <td>
                                         <div id="l1"
-                                            style="position:absolute; left:24; background:brown; width:178; height:176; top:101;">
+                                            style="position:absolute; left:1080px; background:rgb(255, 0, 200); width:178px; height:176px; top:250px;">
                                             <img src="./image1/img5.png" name="mycenter" ;
-                                                style="position:absolute; left:80; top: 80; width:40; height:15">
-                                            <img src="./image1/clever.png" name="myimage" ;
-                                                style="position:absolute; left:80; top:130; width:42; height:23">
+                                                style="position:absolute; left:80px; top: 80px; width:40px; height:40px">
+                                            <img src="./image1/angel.gif" name="myimage" ;
+                                                style="position:absolute; left:80px; top:130px; width:50px; height:50px">
                                         </div>
                                     </td>
                                 </tr>
