@@ -2,11 +2,18 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Scripts</title>
+    <title>UnLoad</title>
     <link rel="stylesheet" href="styles.css" type="text/css">
+    <script>
+            function onunload() {
+                alert('Прощайте')
+            }
+            // window.addEventListener("unload", onunload());
+            window.onbeforeunload(onunload())
+    </script>
 </head>
 
-<body>
+<body >
 
     <div class="about">
         <div class="about-column" id="post-container">
@@ -19,12 +26,12 @@
                                 <img alt='' src="images/logo.jpg" height="70" width="70" />
                             </a></div>
                         <div class="post-margin">
-                            <a href='browserevents.html'>Назад</a>
-
+                            <a href='lab3.html'>Назад</a>
+                            <br>
+                            <p>Покиньте страницу</p>
                         </div>
                         <div class="clear"></div>
                     </div>
-
                     <div class="clear"></div>
                 </div>
             </div>
@@ -34,13 +41,3 @@
     </div>
     <div class="clear"></div>
 </body>
-<footer>
-    <script>
-        let a = prompt('Введите слово', 'слово')
-        if (!a) {
-            alert('Вы не ввели слово')
-        } else {
-            alert('Ваше слово: ' + a)
-        }
-    </script>
-</footer>

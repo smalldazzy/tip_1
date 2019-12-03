@@ -30,8 +30,7 @@
 
                             <br>
                             <h4><a href='naletu.html'>Task 2.2.2</a></h4>
-
-                            <br>
+                            <h4><a href='lab3.html'>Task 3</a></h4>
                             <button class="button" onclick='alert(`ваш месяц ${getRandomMonth()}`)'>Random
                                 month</button>
                             <br>
@@ -114,10 +113,10 @@
         function getRandomMonth() {
             let months = []
             for (let i = 0; i < 12; i++) {
-                months[i] = new Date(2018, i, 1).toLocaleString('ru',
-                    {
-                        month: 'long'
-                    })
+                months[i] = prompt(`Введите ${i + 1}-тый месяц`, 'название месяца')
+                if (!months[i]) {
+                    months[i] = 'вы не ввели название этого месяца'
+                }
             }
             console.log(months)
             let numb = getRandomArbitrary(0, 12)

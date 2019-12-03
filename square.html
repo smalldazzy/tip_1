@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Площади фигур</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <script>
+        function testsel() {
+            var d = document;
+            var a = d.forms["form1"].num.value;
+            var s;
+            var r = "  ";
+            if (((d.forms["form1"].elements[0])[0]).selected) {
+                r = r + ((d.forms["form1"].elements[0])[0]).text;
+                s = a * a * 3.14;
+            }
+            if (((d.forms["form1"].elements[0])[1]).selected) {
+                r = r + ((d.forms["form1"].elements[0])[1]).text;
+                s = a * a;
+            }
+            if (((d.forms["form1"].elements[0])[2]).selected) {
+                r = r + ((d.forms["form1"].elements[0])[2]).text;
+                s = a * a / 2;
+            }
+            if (((d.forms["form1"].elements[0])[3]).selected) {
+                r = r + ((d.forms["form1"].elements[0])[3]).text;
+                s = Math.sqrt(3)/4 * a*a ; 
+            }
+            if (((d.forms["form1"].elements[1])[0]).selected) {
+                s = s
+            }
+            if (((d.forms["form1"].elements[1])[1]).selected) {
+                s = s * 10000
+            }
+            if (((d.forms["form1"].elements[1])[2]).selected) {
+                s = s * 1000000
+            }
+            if (((d.forms["form1"].elements[1])[3]).selected) {
+                s = s * 39.37 * 39.37 
+            }
+            d.forms["form1"]["res"].value = s.toFixed(3);
+            d.forms["form1"]["fig"].value = r;
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="about">
+        <div class="about-column" id="post-container">
+            <div class="wrap-col">
+                <div class="post">
+                    <div class="post-margin">
+                        <div class="post-avatar">
+                            <a href='index.html'>
+                                <div class="avatar-frame"></div>
+                                <img alt='' src="images/logo.jpg" height="70" width="70" />
+                            </a></div>
+                        <div class="post-margin">
+                            <a href='lab3.html'>Назад</a>
+                            <h2>Вычисление площадей фигур</h2>
+                            <table border=5>
+                                <FORM name="form1">
+                                    <tr>
+                                        <td>Выберите фигуру:
+                                            <select name="list1" size=1>
+                                                <option value=0>круг
+                                                <option value=1>квадрат
+                                                <option value=2>треугольник (прямоугольный, равнобедренный)
+                                                <option value=3>треугольник (равносторонний) </option>
+                                            </select>&nbsp;&nbsp;&nbsp;
+                                            <select name="list2" size=1>
+                                                <option value=0>m2
+                                                <option value=1>cm2
+                                                <option value=2>mm2
+                                                <option value=3>inch2 </option>
+                                            </select>&nbsp;&nbsp;&nbsp;
+                                            <br>
+                                            Введите параметр (радиус, сторону, высоту) (в метрах):
+                                            <input type="text" size=5 name="num"><br>
+                                            <input type="button" value="Вычислить" onClick="testsel()">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Фигура: <input type="text" name="fig" size=40 disabled = "true">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Площадь: <input type="text" name="res" size=10 disabled = "true">
+                                            <input type="reset" value="Обновить">
+                                        </td>
+                                    </tr>
+                                </FORM>
+                            </table>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <div class="clear"></div>
+</body>
