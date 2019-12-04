@@ -8,15 +8,16 @@
         function income(ob_frm) {
             let sum = 0
             let arr = []
+            let months = ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь']
             for (i = 0; i < 12; i++) {
                 sum += Number(ob_frm.elements[i].value)
                 arr.push(Number(ob_frm.elements[i].value))
             }
             ob_frm.result.value = (sum/6).toFixed(2);
             ob_frm.min.value = Math.min(...arr)
-            ob_frm.minmonth.value = arr[arr.indexOf(Math.min(...arr))]
+            ob_frm.minmonth.value = months[arr.indexOf(Math.min(...arr))]
             ob_frm.max.value = Math.max(...arr)
-            ob_frm.maxmonth.value = arr[arr.indexOf(Math.max(...arr))]
+            ob_frm.maxmonth.value = months[arr.indexOf(Math.max(...arr))]
         }
     </script>
 </head>
