@@ -7,26 +7,19 @@
     <P id="n_6">Это 6-ой элемент коллекции (порядковый номер - 5)</P>
     <P id="n_7">Это 7-ой элемент коллекции (порядковый номер - 6)</P>
     <SCRIPT id="n_8" language="JavaScript">
-        for (var i = 0; i < document.all.length; i++) {
-            alert("1-й способ. " + "Тэг с индексом " + i + ": " +
-                document.all.item(i).tagName);
-            alert("2-й способ. " + "Тэг с индексом " + i + ": " +
-                document.all[i].tagName);
-        }
+        const els = document.body.getElementsByTagName("*");
         alert("Встретилось элементов в документе:" +
             document.all.length); // выдаст 8
-        alert("6-й элемент: " +
-            document.all.item("n_6").tagName);
-        alert("7-й элемент: " +
-            document.all["n_7"].tagName);
-        alert("8-й элемент (последний): " +
-            document.all.n_8.tagName);
-        alert("8-й элемент (первый в коллекции SCRIPTS): " +
-            document.scripts[0].tagName);
+        alert("p: " +
+            document.all.tags('p').length);
+        alert("h2: " +
+            document.all.tags('h2').length);
+        alert("head: " +
+            document.all.tags('body').length);
+        alert("script: " +
+            document.all.tags('script').length);
     </SCRIPT>
     <SCRIPT id="n_9" language="JavaScript">
-        alert("9-й элемент (второй в коллекции SCRIPTS): " +
-            document.scripts[1].tagName);
         alert("Всего элементов в документе: " + document.all.length); // выдаст 9
     </SCRIPT>
 </BODY>
