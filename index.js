@@ -118,7 +118,7 @@ function task331() {
 function task332() {
     dateVar = new Date();
     day_per_ms = 1000 * 60 * 60 * 24;
-    ten_day_per_ms = 10 * day_per_ms;
+    ten_day_per_ms = 7 * day_per_ms;
     today_ms = dateVar.getTime();
     today_ms += ten_day_per_ms;
     dateVar.setTime(today_ms);
