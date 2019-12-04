@@ -8,13 +8,15 @@
         function income(ob_frm) {
             let sum = 0
             let arr = []
-            for (i = 0; i < 6; i++) {
+            for (i = 0; i < 12; i++) {
                 sum += Number(ob_frm.elements[i].value)
                 arr.push(Number(ob_frm.elements[i].value))
             }
             ob_frm.result.value = (sum/6).toFixed(2);
             ob_frm.min.value = Math.min(...arr)
+            ob_frm.minmonth.value = arr[arr.indexOf(Math.min(...arr))]
             ob_frm.max.value = Math.max(...arr)
+            ob_frm.maxmonth.value = arr[arr.indexOf(Math.max(...arr))]
         }
     </script>
 </head>
@@ -61,13 +63,39 @@
                                         <td>июнь:</td>
                                         <td> <input type="text" size=8 name="m6"></td>
                                     </tr>
+                                    <tr>
+                                        <td>июль:</td>
+                                        <td> <input type="text" size=8 name="m7"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>август:</td>
+                                        <td> <input type="text" size=8 name="m8"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>сентябрь:</td>
+                                        <td> <input type="text" size=8 name="m9"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>октябрь:</td>
+                                        <td> <input type="text" size=8 name="m10"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>ноябрь:</td>
+                                        <td> <input type="text" size=8 name="m11"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>декабрь:</td>
+                                        <td> <input type="text" size=8 name="m12"></td>
+                                    </tr>
                                 </table><br><br>
-                                Средняя зарплата за шесть месяца:
+                                Средняя зарплата за 12 месяцев:
                                 <input type="text" size=10 name="result" disabled = "true"><br><br>
                                 Минимальная зарплата
                                 <input type="text" size=10 name="min"disabled = "true"><br><br>
+                                <input type="text" size=10 name="minmonth" disabled = "true"><br><br>
                                 Максимальная зарплата
                                 <input type="text" size=10 name="max"disabled = "true"><br><br>
+                                <input type="text" size=10 name="maxmonth" disabled = "true"><br><br>
                                 <input type="button" value="Вычислить" onClick="income(form1)">
                                 <input type="reset" value="Обновить">
                             </FORM>
