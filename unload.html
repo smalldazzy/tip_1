@@ -5,11 +5,9 @@
     <title>UnLoad</title>
     <link rel="stylesheet" href="styles.css" type="text/css">
     <script>
-            function onunload() {
-                alert('Прощайте')
-            }
-            // window.addEventListener("unload", onunload());
-            window.onbeforeunload(onunload())
+            window.onbeforeunload = function () {
+                return "";
+            };
     </script>
 </head>
 
