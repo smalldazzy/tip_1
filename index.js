@@ -56,14 +56,34 @@ function task316() {
     if (extent2 != ".jpg") { alert("Если это задание 356, то Вы, забыли про фото в формате jpeg"); }
 }
 function task317() {
-    var x = 0;
-    while (x < 10) {
-        x++;
-        if (x % 2 !== 0) {
-            continue;
+    // до какого числа выводить, рандомом чет/нечет, выводим четные/нечетные одним алектом
+    // рандомом заполнять зп от 500 д 1000 +валидация <=0
+    let dok = prompt('До какого числа выводить?')
+    let arr = []
+    let chet = Math.round(Math.random())
+    console.log(chet)
+    if (chet === 0) {
+        var x = 0;
+        while (x < Number(dok)) {
+            x++;
+            if (x % 2 !== 0) {
+                continue;
+            }
+            arr.push(x)
         }
-        alert(x);
+    } else {
+        var x = 0;
+        while (x < Number(dok)) {
+            x++;
+            if (x % 2 === 0) {
+                continue;
+            }
+            arr.push(x)
+        }
     }
+    alert(arr)
+    console.log(arr)
+    
 }
 function task318() {
     let breakat = prompt("Введите число для прерывания цикла от 1 до 10-ти ", "");

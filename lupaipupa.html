@@ -6,12 +6,32 @@
     <link rel="stylesheet" href="styles.css" type="text/css">
     <script>
          function income(ob_frm) {
-             let sum = 0
-             for (i=0;i<6;i++) {
-                sum+= Number(ob_frm.elements[i].value)
-             }
-                ob_frm.result.value = (sum/6).toFixed(2);
+             console.log(ob_frm.elements)
+                let sum = 0
+                let arr = []
+                for (i = 0; i < 6; i++) {
+                    arr.push(Number(ob_frm.elements[i].value))
+                    sum += Number(ob_frm.elements[i].value)
+                }
+                let ex = arr.some((el) => el<0)
+                if (!ex) {
+                    ob_frm.result.value = (sum / 6).toFixed(2);
+                } else {
+                    alert('Введите корректные данные')
+                }
+        }
+        function rand (ob_frm) {
+            for (i=0;i<6;i++){
+                ob_frm.elements[i].value = randomInteger();
             }
+        }
+        function randomInteger() {
+                let min = 500
+                let max = 1000
+                let rand = min - 0.5 + Math.random() * (max - min + 1);
+                return Math.round(rand);
+            }
+        
     </script>
 </head>
 
@@ -62,6 +82,7 @@
                                         <input type="text" size=15 name="result" disabled = "true"><br><br>
                                         <input type="button" value="Вычислить" onClick="income(form1)">
                                         <input type="reset" value="Обновить">
+                                        <input type='button' value='Random' onclick='rand(form1)'>
                                     </FORM>
                         </div>
                         <div class="clear"></div>
