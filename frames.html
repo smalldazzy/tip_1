@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Scripts</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <script src='index.js'>
+        var defSize = 50;
+        function display(f) {
+            var newRows = "";
+            // Определение местоположения первого фрейма в коллекции all
+            var elFrame = document.all.tags("FRAME");
+            for (var intFrames = 0; intFrames < frames.length; intFrames++) {
+                var curF = frames[intFrames].document;
+                if (curF.body == f.document.body) {
+                    // Предоставление всего пространства выделенному фрейму
+                    newRows += "*, ";
+                    /* Увеличение заголовка */
+                    curF.all.header.style.fontSize = "200%";
+                    /* Включение полос прокрутки в активном фрейме путём доступа к элементу FRAME.  */
+                    elFrame[intFrames].scrolling = "yes";
+                }
+                else {
+                    // Установка размера по умолчанию
+                    newRows += defSize.toString() + ", ";
+                    // Сброс изменений размера и шрифта заголовка
+                    curF.all.header.style.fontSize = "";
+                    // Отключение прокручивания
+                    document.all[startIndex + intFrames].scrolling = "no"
+                }
+            }
+            document.body.rows = newRows;
+        }</script>
+</head>
+<FRAMESET ROWS="50, 50, *, 50, 50">
+        <FRAME SRC="./frame1.html" NORESIZE SCROLLING="No">
+        <FRAME SRC="./frame2.html" NORESIZE SCROLLING="No">
+        <FRAME SRC="./frame3.html" NORESIZE>
+        <FRAME SRC="./frame4.html" NORESIZE SCROLLING="No">
+        <FRAME SRC="./frame5.html" NORESIZE SCROLLING="No">
+</FRAMESET>
+<body>
+
+    <!-- <div class="about">
+        <div class="about-column" id="post-container">
+            <div class="wrap-col">
+                <div class="post">
+                    <div class="post-margin">
+                        <div class="post-avatar">
+                            <a href='index.html'>
+                                <div class="avatar-frame"></div>
+                                <img alt='' src="images/logo.jpg" height="70" width="70" />
+                            </a></div>
+                        <div class="post-margin"> -->
+                                <FRAMESET ROWS="50, 50, *, 50, 50">
+                                        <FRAME SRC="./frame1.html" NORESIZE SCROLLING="No">
+                                        <FRAME SRC="./frame2.html" NORESIZE SCROLLING="No">
+                                        <FRAME SRC="./frame3.html" NORESIZE>
+                                        <FRAME SRC="./frame4.html" NORESIZE SCROLLING="No">
+                                        <FRAME SRC="./frame5.html" NORESIZE SCROLLING="No">
+                                </FRAMESET>
+                        <!-- </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    </div>
+    <div class="clear"></div>
+</body>

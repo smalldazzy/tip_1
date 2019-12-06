@@ -1,0 +1,6 @@
+PROD_CODE:INT#PROD_NAME#PROD_PRICE:FLOAT#PROD_DETAILS
+1#Apple#10.3#apple_details.html
+2#Pen#5.1#pen_details.html
+3#Pineapple#13.2#pineapple_details.html
+4#Computer#100.5#computer_details.html
+5#Book#25.3#book_details.html

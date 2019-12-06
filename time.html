@@ -1,0 +1,54 @@
+<HTML>
+
+<HEAD>
+    <meta charset="utf-8">
+    <TITLE>Идущие часы</TITLE>
+    <STYLE TYPE="text/css">
+        #clock {
+            font-size: 200%;
+            font-weight: bold
+        }
+
+        /* Формат цифр часов. */
+    </STYLE>
+    <SCRIPT LANGUAGE="JavaScript">
+        function lead0(val) {
+            // Добавляются нули впереди при необходимости.
+            return (val < 10) ? "0" + val.toString() : val;
+        }
+
+        function buildTime() {
+            var time = new Date();
+            var ampm = " AM";
+            var h = time.getHours();
+            // Устанавливается время и индикатор времени суток
+            // (до/после полудня - am/pm).
+            if (h > 12) {
+                h = h - 12;
+                ampm = " PM";
+            }
+            let microsec = (String(performance.now() - Math.floor(performance.now()))).split('.')[1].substr(0, 2)
+            return lead0(h) + ":" + lead0(time.getMinutes()) + ":" + lead0(time.getSeconds()) + ":" + lead0(time.getMilliseconds()) + microsec + ampm;
+        }
+
+        // Обновление значения на часах на текущее.
+        function tick() {
+            document.all.clock.innerText = buildTime();
+        }
+    </SCRIPT>
+</HEAD>
+<!-- При выгрузке удаляется таймер -->
+
+<BODY ONUNLOAD="if (null != window.tmr) clearInterval(window.tmr);" ONLOAD="window.tmr = setInterval('tick()', 0.01);">
+    <H1>Цифровые часы</H1>
+    <P>Запрограммировано с использованием HTML.
+        Текущее время (AM/PM - до/после полудня):
+        <SPAN ID="clock">
+            <SCRIPT>
+                // Вывод исходного значения времени.
+                document.write(buildTime());
+            </SCRIPT>
+        </SPAN>.</P>
+</BODY>
+
+</HTML>
