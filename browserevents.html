@@ -34,20 +34,17 @@
                             <button class="button" onclick='alert(`ваш месяц ${getRandomMonth()}`)'>Random
                                 month</button>
                             <br>
-                            <!-- <button onclick='alert("\\ \"Lorem ipsum \b dolor sit amet,\t consectetur adipiscing\r elit\f, sed do \n eiusmod tempor incididunt ut\" ")'>esc</button>
-                            <hr>
                             <br>
-                            <a href='calculator.html'>Calculator</a>
-                            
-        \b (возврат на одну позицию),
-        \t (табуляция),
-        \f (переход на следующую страницу),
-        \n (переход на следующую строку),
-        \r (возврат каретки),
-        \” (двойная кавычка),
-        \’(одинарная кавычка - апостроф),
-        \\ ( обратная косая черта - обратный слэдж).
--->
+                            <br>
+                            <input id='day' width="10">
+                            <br>
+                            <select id='sel' width="10"></select>
+                            <br>
+                            <input id='year' width="10">
+                            <br>
+                            <input type="submit" class="button" value="Validate" id='validate'
+                                onclick="validate(document.getElementById('day').value,document.getElementById('sel').value,document.getElementById('year').value)">
+
                         </div>
                         <div class="clear"></div>
                     </div>
@@ -60,10 +57,55 @@
 
     </div>
     <div class="clear"></div>
-
 </body>
 <footer>
     <script>
+        let select = document.getElementById('sel')
+        let months = []
+        for (let i = 0; i < 12; i++) {
+            months[i] = new Date(2018, i, 1).toLocaleString('ru',
+                {
+                    month: 'long'
+                })
+        }
+        for (var i = 0; i < months.length; i++) {
+            var opt = months[i];
+            var el = document.createElement("option");
+            el.textContent = opt;
+            el.value = opt;
+            select.appendChild(el);
+        }
+        function validate(day, month, year) {
+            month = months.indexOf(month)
+            let days_in_month = new Date(year, month+1, 0).getDate()
+            let dayofweek1 = new Date(year,month,day+Math.round(Math.random()*10))
+            const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
+            //alert(dayofweek1)
+            //alert(days[dayofweek1.getDate()])
+            if (!Number.isInteger(Number(day)) || !Number.isInteger(Number(year)) || day > days_in_month || day <= 0 || year <= 0) {
+                alert('Введите правильную дату')
+            } else {
+                alert('Дата верная')
+            }
+            let birthdate = new Date(year, month, date).toLocaleString('ru',
+                {
+                    month: 'long'
+                });
+            alert(birthdate)
+            if(birthdate.getDate()> Date.now()){
+                alert('Вы яшчэ не нарадзіліся!')
+            }
+            else{
+                if(birthdate.getFullYear()> 50 ||birthdate.getFullYear()<30) {
+                    alert('Вам яшчэ рана ці ўжо занадта позна лічыць свае дні, сыходзьце!')
+                }
+                else{
+                let max = birthdate.getDay()
+                alert(Math.random()*max)
+                }
+            }
+        }
+
         function alertHandler() {
             alert('Это alert (предупреждение)')
         }
@@ -93,15 +135,11 @@
                     months[i] = 'вы не ввели название этого месяца'
                 }
             }
+            console.log(months)
             let numb = getRandomArbitrary(0, 12)
             console.log(numb, months[numb], months)
             //logging
             return months[numb]
         }
-        let text = 'Lorem ipsum  dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut' +
-            'labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris' +
-            'nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse' +
-            'cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui' +
-            'officia deserunt mollit anim id est laborum.'
     </script>
 </footer>
