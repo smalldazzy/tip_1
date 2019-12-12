@@ -3,31 +3,30 @@
 <HEAD>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+    <link rel="stylesheet" href='./animation.css'>
     <TITLE>Визуальные эффекты перехода revealtrans()</TITLE>
     <script>
-        function light_logo(ii, dt) {
-            ii = Number(ii);
-            dt = Number(dt);
-            ImageLogo.filters.revealtrans.Apply();
-            ImageLogo.filters.revealtrans.transition = ii;
-            ImageLogo.filters.revealtrans.duration = dt;
-            ImageLogo.style.visibility = "visible";
-            ImageLogo.filters.revealtrans.play();
+        const animations = ['bounceIn', 'fadeIn', 'lightSpeedIn', 'flipInX', 'rotateIn', 'slideInUp', 'zoomIn'];
+        function animate() {
+            let i = Number(document.getElementById('trns').value)
+            const image = document.getElementById('image')
+            image.style.animationDuration = document.getElementById('drtn').value +'s'
+            image.className = animations[i]
+            const recreated = image.cloneNode(true)
+            image.parentNode.replaceChild(recreated, image)
         }
+
     </script>
 </HEAD>
 
 <BODY>
     <H3>Эффекты перехода revealtrans().</H3>
-    <form name="frm">
-        <input name="trns" TYPE="text" value=15 size=3><b><big>Введите тип анимации: 0...23</big></b>
+        <input id="trns" TYPE="text" value=0 size=3><b>Введите тип анимации: 0...6</b>
         <br>
-        <input name="drtn" TYPE="text" value=5 size=3><b><big>Введите время анимации (в секундах):</big></b>
+        <input id="drtn" TYPE="text" value=1 size=3><b>Введите время анимации (в секундах):</b>
         <br>
-        <input type="button" value="Применить"
-            onClick='ImageLogo.style.visibility="hidden"; light_logo(frm.trns.value, frm.drtn.value);'>
-    </form>
-    <IMG ID=ImageLogo SRC="./image1/second.jpg" style="filter:revealtrans();">
+        <input type="button" value="Применить" onClick='animate()'>
+    <IMG ID=image SRC="./image1/second.jpg">
 </BODY>
 
 </HTML>
