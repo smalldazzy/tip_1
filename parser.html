@@ -2,6 +2,7 @@
   <head>
     <title>Товары</title>
     <meta charset="utf-8" http-equiv="Content-Type">   
+    <script src='./parser.js'></script>
     <style>     
       h2 {
         text-align: center; 
@@ -31,67 +32,9 @@
         border-color:lightgrey;
         padding: 7
       }   
-    </style>  
-    <SCRIPT>          
-      function PROD_CODE_onClick() {             
-        products.SortColumn="PROD_CODE";            
-        products.SortAscending=true;  // задаётся сортировка в возрастающем порядке             
-        products.Reset(); 
-      } // обновление таблицы с данными          
-      function PROD_PRICE_onClick() {             
-        products.SortAscending=false; // задаётся сортировка в убывающем порядке (по умолчанию)             
-        products.SortColumn="PROD_PRICE";             
-        products.Reset(); 
-      }         
-      function PROD_DETAILS_onClick() {             
-        products.SortColumn="PROD_DETAILS";             
-        products.Reset(); 
-      }       
-      function PROD_CODE_filter() {             
-        products.FilterColumn="PROD_CODE"             
-        products.FilterValue=event.srcElement.id             
-        products.FilterCriterion="="             
-        products.Reset()         
-      }
-      function details() {
-        location.href = './taskdata/' + event.srcElement.innerText + "_details.html"
-      }
-    </SCRIPT> 
+    </style>   
   </head> 
-  <body style="background:F8F8FF; text-align: center";>     
+  <body onload=parseData() style="background:F8F8FF; text-align: center";>     
     <h2>Товары</h2>
-    <OBJECT id="products" CLASSID="CLSID:333C7BC4-460F-11D0-BC04-0080C7055A83" type="text/plain">        
-      <PARAM NAME="RowDelim" VALUE="&#10 ASCII-код;"> <!-- разделитель строк -->         
-      <PARAM NAME="FieldDelim" VALUE="#"> <!-- разделитель полей -->         
-      <PARAM NAME="DataURL" VALUE="./taskdata/stockdata.txt"> <!-- URL файла с данными  -->         
-      <PARAM NAME="UseHeader" VALUE="true"> 
-    </OBJECT>     
-    <table class=tbl ID=tblEstim  DATASRC="#products" DATAPAGESIZE=20>         
-      <thead class=thd>             
-        <tr>                 
-          <th class=thd onClick="PROD_CODE_onClick()" id="PROD_CODE" title="Сортировать?">Код товара</th>
-          <th title="Нет сортировки.">Наименование товара</th>
-          <th onClick="PROD_PRICE_onClick()" id="PROD_PRICE" title="Сортировать?">Цена</th>       
-        </tr>         
-      </thead>         
-      <tbody class=tbd>             
-        <tr>                 
-          <td class=ttd><div DATAFLD="PROD_CODE" DATAFORMATAS=INT></div></td>                 
-          <td class=ttd><span DATAFLD="PROD_NAME" DATAFORMATAS=TEXT onclick="details()"></span></td>     
-          <td class=ttd><div DATAFLD="PROD_PRICE" DATAFORMATAS=FLOAT></div></td>              
-        </tr>         
-      </tbody>     
-    </table>  
-    <P STYLE="text-align: center">  
-      <FONT STYLE="COLOR:#006699; FONT-SIZE: smaller; FONT-WEIGHT: bold">             
-        <SCRIPT>document.write("Всего строк в БД: "+products.recordset.recordCount+" <br>")</SCRIPT>
-        <INPUT TYPE=BUTTON VALUE="Предыдущие строки" ONCLICK="tblEstim.previousPage()">            
-        <INPUT TYPE=BUTTON VALUE="Следующие строки" ONCLICK="tblEstim.nextPage()"><br>
-        Предусмотрена сортировка по трём столбцам: <br>
-        по первому - в возрастаюшем порядке;<br>              
-        по третьему и четвёртому - в убывающем;<br>               
-        Cортировка выполняется щелчком левой кнопкой мыши по заголовку нужного столбца.       
-      </P>
-    </FONT>
   </body>
 </html> 
