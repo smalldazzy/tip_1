@@ -6,14 +6,40 @@
     <link rel="stylesheet" href='./animation.css'>
     <TITLE>Визуальные эффекты перехода revealtrans()</TITLE>
     <script>
+        let i=0
         const animations = ['bounceIn', 'fadeIn', 'lightSpeedIn', 'flipInX', 'rotateIn', 'slideInUp', 'zoomIn'];
-        function animate() {
-            let i = Number(document.getElementById('trns').value)
+        function animate(i) {
+            console.log('anim',i)
+            let n = randomInteger(0,5)                                //Number(document.getElementById('trns').value)
             const image = document.getElementById('image')
-            image.style.animationDuration = document.getElementById('drtn').value +'s'
-            image.className = animations[i]
+            image.style.animationDuration = '1s'            //document.getElementById('drtn').value +'s'
+            image.className = animations[n]
             const recreated = image.cloneNode(true)
             image.parentNode.replaceChild(recreated, image)
+            localStorage.setItem('anim',Number(i)+1)
+        }
+        // function delay() {
+        //     for (let k=0;k<5;k++) {
+        //         setTimeout(animate(), 1000)
+        //     }
+                // setTimeout(animate(), 1000)
+                // setTimeout(animate(), 1000)
+                // setTimeout(animate(), 1000)
+                // setTimeout(animate(), 1000)
+                // setTimeout(animate(), 1000)
+        // }
+        function randomInteger(min, max) {
+            let rand = min + Math.random() * (max + 1 - min);
+            return Math.floor(rand);
+        }
+        function func() {
+            // let i=0
+            i = localStorage.getItem('anim')
+            if (i<6){
+                console.log(i)
+                animate(i)
+                setTimeout(func,1000)
+            } else return
         }
 
     </script>
@@ -21,11 +47,11 @@
 
 <BODY>
     <H3>Эффекты перехода revealtrans().</H3>
-        <input id="trns" TYPE="text" value=0 size=3><b>Введите тип анимации: 0...6</b>
-        <br>
-        <input id="drtn" TYPE="text" value=1 size=3><b>Введите время анимации (в секундах):</b>
-        <br>
-        <input type="button" value="Применить" onClick='animate()'>
+    <input id="trns" TYPE="text" value=0 size=3><b>Введите тип анимации</b>
+    <br>
+    <input id="drtn" TYPE="text" value=1 size=3><b>Введите время анимации (в секундах):</b>
+    <br>
+    <input type="button" value="Применить" onClick='localStorage.setItem("anim",0);func()'>
     <IMG ID=image SRC="./image1/second.jpg">
 </BODY>
 

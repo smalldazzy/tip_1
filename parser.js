@@ -10,19 +10,83 @@
 //         link: './square.html'
 //     },
 // ]
-// let sdata = '1#tovar1#./sputnik.html;2#tovar2#./square.html'
-const parseData = () => {
-    let lsdata = localStorage.getItem('tabledata')
+// let sdata = '1#tovar1#./sputnik.html;2#tovar2#./square.html;3#tovar3#;'
+// localStorage.setItem('tabledata','1#Avto#./sputnik.html;2#Мяч#./square.html;3#тест#;')
+// input выпадающий список из имен товаров из файла, если выбранный в списке отсутсвтет или содержится в описанрии
+// для анимации рандом из 5 анимаций с постоянным временем
+const onInit = () => {
+    document.getElementById('file').addEventListener('change', read, false)
+    // const finaldata = parseData(localStorage.getItem('tabledata'))
+    const select = document.getElementById('sel')
+    for (var i = 0; i < finaldata.length; i++) {
+        var opt = finaldata[i];
+        var el = document.createElement("option");
+        el.textContent = opt.name;
+        el.onclick = () => top.location.href = opt.link
+        el.value = opt.name;
+        select.appendChild(el);1
+    }
+}
+const fillDropdown = (finaldata) => {
+    const select = document.getElementById('sel')
+    // select.setAttribute('onchange', onChange(finaldata))
+    for (var i = 0; i < finaldata.length; i++) {
+        var opt = finaldata[i];
+        var el = document.createElement("option");
+        el.textContent = opt.name;
+        el.onclick = () => top.location.href = opt.link
+        el.value = opt.name;
+        select.appendChild(el);1
+    }
+}
+const parseData = (lsdata) => {
+    // if (typeof lsdata !== 'string') {
+    //     alert('Parse failed')
+    //     return
+    // }
+    // let lsdata = localStorage.getItem('tabledata')
     let trows = lsdata.split(';')
     let finaldata = trows.map((item)=>{
         let tdata = item.split('#')
+        // if (tdata.length !== 3) {
+        //     alert('parse failed')
+        //     return
+        // }
         return {
             code: tdata[0],
             name: tdata[1],
             link: tdata[2],
         }
     })
-    render(finaldata)
+    return finaldata
+}
+const read = (e) => {
+    console.log(e.target.files[0])
+    if (e.target.files[0].type !== 'text/plain'){
+        alert('non txt file')
+        return
+    }
+    let reader = new FileReader()
+    reader.onload = (file) => {
+            console.log(file.target.result)
+            const finaldata = parseData(file.target.result)
+            fillDropdown(finaldata)
+        
+    }
+    reader.readAsText(e.target.files[0])
+    
+}
+const onChange = () => {
+    const finaldata = parseData(localStorage.getItem('tabledata'))
+    const select = document.getElementById('sel')
+    var selectedValue = select.options[select.selectedIndex].value;
+    console.log(selectedValue)
+    const tableItem = finaldata.find((item) => item.name === selectedValue)
+    if (!tableItem.link) {
+        alert('Invalid link')
+    } else {
+        render([tableItem])
+    }
 }
 const render = (data) => {
     let table = document.createElement('table')

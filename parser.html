@@ -34,7 +34,9 @@
       }   
     </style>   
   </head> 
-  <body onload=parseData() style="background:F8F8FF; text-align: center";>     
+  <body onload=onInit() style="background:F8F8FF; text-align: center";>
+    <input type="file" id='file' onload="read(e)">
     <h2>Товары</h2>
+    <select id='sel' onchange="onChange()"></select>
   </body>
 </html> 
